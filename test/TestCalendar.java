@@ -38,5 +38,15 @@ class TestCalendar {
 
 		Assertions.assertFalse(cal.isLeapYear());
 	}
+
+	// equivalence class: year <= 0
+	@ParameterizedTest
+	@ValueSource(ints = {0, -1, Integer.MIN_VALUE})
+	public void check_if_year_smaller_zero(int year) {
+
+		Calendar cal = new Calendar(year);
+		Assertions.assertFalse(cal.isLeapYear());
+
+	}
 }
 
